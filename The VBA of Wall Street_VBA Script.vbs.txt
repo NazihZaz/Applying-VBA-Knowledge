@@ -1,0 +1,116 @@
+Sub The_VBA_of_Wall_Street()
+    'Declare the variables
+Dim LastRow As Long
+Dim DispRow As Long
+Dim ClosingPrice As Double
+Dim OpenPrice As Double
+Dim YearlyChange As Double
+Dim PercentChange As Double
+Dim TotalStockVolume As Double
+
+    'Add columns name
+Range("I1").Value = "Ticker"
+Range("J1").Value = "Yearly Change"
+Range("K1").Value = "Percent Change"
+Range("L1").Value = "Total Volume"
+
+    'Find Last Row of the Data Set
+LastRow = Cells(Rows.Count, 1).End(xlUp).Row
+
+    'Set the value of the first DispRow
+    DispRow = 2
+
+    'Set the initial value of OpeningPrice and TotalStockVolume
+OpeningPrice = 0
+TotalStockVolume = 0
+
+    'Loop through all the Tickers
+For i = 2 To LastRow
+   
+    'Setting the value for OpeningPrice
+If OpeningPrice = 0 Then
+OpeningPrice = Cells(i, 3).Value
+End If
+
+    'Set the cells format for the PercentChange Cells
+Cells(i, 11).NumberFormat = "0.00%"
+
+    'Check if we are still in the same Ticker
+If Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
+    
+     'Set Total Stock Volume
+TotalStockVolume = TotalStockVolume + Cells(i, 7).Value
+
+    'Set ClosingPrice value of each Ticker
+ClosingPrice = Cells(i, 6).Value
+
+    'Print the Tickers
+Cells(DispRow, 9).Value = Cells(i, 1).Value
+
+    'Set YearlyChange Formula
+YearlyChange = ClosingPrice - OpeningPrice
+
+    'Set PercentChange Formula
+If YearlyChange = 0 Then
+PercentChange = 0
+Else
+PercentChange = ClosingPrice / OpeningPrice - 1
+End If
+
+    'Print the TotalStockVolume to the summary table
+Cells(DispRow, 12).Value = TotalStockVolume
+    
+    'Print the YearlyChanges to the summary table
+Cells(DispRow, 10).Value = YearlyChange
+
+  'Set the conditional formating for cells
+    If YearlyChange > 0 Then
+    Cells(DispRow, 10).Interior.ColorIndex = 4
+    ElseIf YearlyChange < 0 Then
+    Cells(DispRow, 10).Interior.ColorIndex = 3
+    Else
+    End If
+    
+    'Print the PercentChange to the summary table
+Cells(DispRow, 11).Value = PercentChange
+
+    'Add one to the summary table Row
+DispRow = DispRow + 1
+
+    'Reset the OpeningPrice and TotalStockVolume values
+OpeningPrice = 0
+TotalStockVolume = 0
+
+Else
+     'Add to Total Stock Volume
+TotalStockVolume = TotalStockVolume + Cells(i, 7).Value
+
+End If
+
+Next i
+
+    'Bonus Part
+    
+    'Set names of the indicators
+Range("O2").Value = "Greatest % Increase"
+Range("O3").Value = "Greatest % Decrease"
+Range("O4").Value = "Greatest Stock Volume"
+Range("P1").Value = "Ticker"
+Range("Q1").Value = "Value"
+
+    'Set Greatest % Increase and its ticker
+Range("Q2").Value = Application.WorksheetFunction.Max(Range("K2:K" & LastRow))
+Range("P2").Value = Application.WorksheetFunction.XLookup(Range("Q2").Value, Range("K2:K" & LastRow), Range("I2:I" & LastRow))
+
+    'Set Greatest % Decrease and its ticker
+Range("Q3").Value = Application.WorksheetFunction.Min(Range("K2:K" & LastRow))
+Range("P3").Value = Application.WorksheetFunction.XLookup(Range("Q3").Value, Range("K2:K" & LastRow), Range("I2:I" & LastRow))
+
+    'Set Greatest Stock Volume and its ticker
+Range("Q4").Value = Application.WorksheetFunction.Max(Range("L2:L" & LastRow))
+Range("P4").Value = Application.WorksheetFunction.XLookup(Range("Q4").Value, Range("L2:L" & LastRow), Range("I2:I" & LastRow))
+
+    'Set Greatest Cells format for cells Q2 and Q3
+Range("Q2:Q3").NumberFormat = "0.00%"
+
+End Sub
