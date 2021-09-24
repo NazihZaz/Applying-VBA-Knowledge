@@ -12,13 +12,16 @@ The VBA script allows to loop through all the stocks for each year and output th
 - Greatest % decrease. (Value and corresponding ticker)
 - Greatest total volume. (Value and corresponding ticker)
 
-Below are the Excel screenshots for each year:
+Below are the Excel screenshots for each year followed by the VBA script:
 
 2014
 ![VBA-challenge_Stock_Market_Analysis_2014 ](https://github.com/NazihZaz/VBA-challenge/blob/main/2014_VBA_challenge_Stock_Market_Analysis.PNG)
 
 2015
-![VBA-challenge_Stock_Market_Analysis_2014 ](https://github.com/NazihZaz/VBA-challenge/blob/main/2015_VBA_challenge_Stock_%20Market_Analysis.PNG)
+![VBA-challenge_Stock_Market_Analysis_2015 ](https://github.com/NazihZaz/VBA-challenge/blob/main/2015_VBA_challenge_Stock_%20Market_Analysis.PNG)
 
 2016
-![VBA-challenge_Stock_Market_Analysis_2014 ](https://github.com/NazihZaz/VBA-challenge/blob/main/2016_VBA_challenge_Stock_Market_Analysis.PNG)
+![VBA-challenge_Stock_Market_Analysis_2016 ](https://github.com/NazihZaz/VBA-challenge/blob/main/2016_VBA_challenge_Stock_Market_Analysis.PNG)
+
+VBA Script
+![VBA-challenge_VBA_Script](https://github.com/NazihZaz/VBA-challenge/blob/main/The%20VBA%20of%20Wall%20Street_VBA%20Script.vbs.txt)
