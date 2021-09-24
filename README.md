@@ -13,4 +13,4 @@ The VBA script allows to loop through all the stocks for each year and output th
 - Greatest total volume. (Value and corresponding ticker)
 
 
-<img src="file://VBA-challenge_Stock_Market_Analysis_2014.png" alt="alt text" width="200"/>
+![VBA-challenge_Stock_Market_Analysis_2014](file:///<"C:/Users/JINK/Desktop/git/VBA-challenge/VBA-challenge_Stock_Market_Analysis_2014.PNG"> "2014")
