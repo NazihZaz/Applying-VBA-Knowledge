@@ -14,4 +14,4 @@ The VBA script allows to loop through all the stocks for each year and output th
 
 
 
-!VBA-challenge_Stock Market Analysis 2014 ] ["C:\Users\JINK\Desktop\git\VBA-challenge\VBA-challenge_Stock Market Analysis 2014.PNG"]
+![VBA-challenge_Stock Market Analysis 2014 ] ["C:\Users\JINK\Desktop\git\VBA-challenge\VBA-challenge_Stock Market Analysis 2014.PNG"]
